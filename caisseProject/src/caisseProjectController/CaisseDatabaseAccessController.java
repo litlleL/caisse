@@ -26,9 +26,9 @@ public class CaisseDatabaseAccessController {
 		
 		try {
 			connector = getConnection();
-			System.out.println("Connected to database");
+			System.out.println("[Log-DATABASE_ACCESS]: La connecxion avec la base de données est établi.");
 		} catch (SQLException e) {
-			System.out.println("ERROR: Could not connect to the database");
+			System.err.println("[Log-DATABASE_ACCESS]: La connecxion avec la base de données a échoué.");
 			e.printStackTrace();
 		}
 	}
@@ -106,6 +106,15 @@ public class CaisseDatabaseAccessController {
 			e.printStackTrace();
 		}
 		return update;
+	}
+	
+	public void closeAccess() {
+		try {
+			System.out.println("[Log-DATABASE_ACCESS]: Demande de fermeture d'accès reçu");
+			connector.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
