@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import caisseProjectView.CaisseDatabaseInfoView;
+import caisseProjectView.CaisseLogView;
+
 public class CaisseController {
 
 	private JFrame frame;
@@ -28,17 +31,16 @@ public class CaisseController {
 	 * Create the application.
 	 */
 	public CaisseController() {
-		if(!initializeDatabase()){
-			
-		}else{
-			
-		}
 		initializeInterface();
+		if(!initializeDatabase()){
+			frame.add(new CaisseDatabaseInfoView());
+		}else{
+			frame.add(new CaisseLogView());
+		}
 	}
 
 	private boolean initializeDatabase() {
 		return false;
-		// TODO Auto-generated method stub
 	}
 
 	/**
