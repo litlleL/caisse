@@ -4,9 +4,6 @@ import java.awt.EventQueue;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Properties;
 
 import javax.swing.JFrame;
@@ -19,10 +16,6 @@ public class CaisseController {
 
 	private JFrame frame;
 	private boolean databaseInitialized = false;
-	private InputStream input = null;
-	private CaisseDatabaseAccessController connection = null;
-	private Properties propriete;
-	
 	private String username;
 	private String pass;
 	private String server;
@@ -58,7 +51,7 @@ public class CaisseController {
 			frame.setResizable(false);
 			frame.add(new CaisseDatabaseInfoView());
 		}else{
-			frame.setBounds(100, 100, 1600, 900);
+			frame.setBounds(100, 100, 460, 400);
 			frame.setResizable(false);
 			frame.add(new CaisseLogView());
 		}
@@ -86,14 +79,12 @@ public class CaisseController {
 	}
 	
 	private void setConnection(CaisseDatabaseAccessController connection) {
-			this.connection = connection;
 	}
 
 	public static Properties load(String filename) throws IOException, FileNotFoundException{
 		Properties properties = new Properties();
 		
 		FileInputStream input = new FileInputStream(filename);
-		System.out.println(filename);
 		try{
 			properties.load(input);
 			return properties;

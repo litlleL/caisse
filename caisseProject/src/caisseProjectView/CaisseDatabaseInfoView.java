@@ -29,6 +29,11 @@ import caisseProjectView.graphics.JHintTextField;
 
 public class CaisseDatabaseInfoView extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3308377377793410300L;
+	
 	private JPanel bloc;
 	private JPanel blocEntete;
 	private JPanel acces;
@@ -37,7 +42,9 @@ public class CaisseDatabaseInfoView extends JPanel {
     private JHintTextField server = null;
     private JHintTextField databaseName = null;
     private JHintPasswordField password = null;
+    
     public JButton valide;
+    
     private JLabel userName;
     private JLabel passwordLab;
     private JLabel serverName;
@@ -59,17 +66,18 @@ public class CaisseDatabaseInfoView extends JPanel {
 		bloc = new JPanel();
 		blocEntete = new JPanel();
 		titreParametre = new JLabel("Paramètres accès BDD");
-		titreParametre.setHorizontalAlignment(SwingConstants.CENTER);
 		acces = new JPanel();
 		
 		this.setLayout(new BorderLayout());
 		this.bloc.setLayout(new BorderLayout());
 		this.blocEntete.setLayout(new BorderLayout());
+		this.acces.setLayout(new FlowLayout(FlowLayout.LEADING));
 	}
 
 	private void initializeComponent() {
 		titreParametre.setFont(new Font("Gill Sans MT",Font.BOLD,30));
-		acces.setLayout(new FlowLayout(FlowLayout.LEADING));
+		titreParametre.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		
 		userName = new JLabel("Nom d'utilisateur:");
 		userName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -105,10 +113,13 @@ public class CaisseDatabaseInfoView extends JPanel {
 		acces.add(getJtextServer());
 		acces.add(database);
 		acces.add(getJtextDatabase());
+		
 		blocEntete.add(titreParametre,BorderLayout.CENTER);
+		
 		bloc.add(blocEntete, BorderLayout.NORTH);
 		bloc.add(acces,BorderLayout.CENTER);
 		bloc.add(getButton(),BorderLayout.SOUTH);
+		
 		this.add(bloc,BorderLayout.CENTER);
 	}
 	
