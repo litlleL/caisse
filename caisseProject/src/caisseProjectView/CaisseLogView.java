@@ -45,7 +45,6 @@ public class CaisseLogView extends JPanel {
 		init();
 		initializeComponent();
 		addComponent();
-
 	}
 
 	private void init() {

@@ -36,7 +36,7 @@ public class CaisseDatabaseInfoView extends JPanel {
 	
 	private JPanel bloc;
 	private JPanel blocEntete;
-	private JPanel acces;
+	private JPanel content;
 	private JLabel titreParametre;
     private JHintTextField username = null;
     private JHintTextField server = null;
@@ -66,12 +66,12 @@ public class CaisseDatabaseInfoView extends JPanel {
 		bloc = new JPanel();
 		blocEntete = new JPanel();
 		titreParametre = new JLabel("Paramètres accès BDD");
-		acces = new JPanel();
+		content = new JPanel();
 		
 		this.setLayout(new BorderLayout());
 		this.bloc.setLayout(new BorderLayout());
 		this.blocEntete.setLayout(new BorderLayout());
-		this.acces.setLayout(new FlowLayout(FlowLayout.LEADING));
+		this.content.setLayout(new FlowLayout(FlowLayout.LEADING));
 	}
 
 	private void initializeComponent() {
@@ -105,19 +105,19 @@ public class CaisseDatabaseInfoView extends JPanel {
 	}
 	
 	private void addComponent() {
-		acces.add(userName);
-		acces.add(getJtextUserName());
-		acces.add(passwordLab);
-		acces.add(getJtextPassword());
-		acces.add(serverName);
-		acces.add(getJtextServer());
-		acces.add(database);
-		acces.add(getJtextDatabase());
+		content.add(userName);
+		content.add(getJtextUserName());
+		content.add(passwordLab);
+		content.add(getJtextPassword());
+		content.add(serverName);
+		content.add(getJtextServer());
+		content.add(database);
+		content.add(getJtextDatabase());
 		
 		blocEntete.add(titreParametre,BorderLayout.CENTER);
 		
 		bloc.add(blocEntete, BorderLayout.NORTH);
-		bloc.add(acces,BorderLayout.CENTER);
+		bloc.add(content,BorderLayout.CENTER);
 		bloc.add(getButton(),BorderLayout.SOUTH);
 		
 		this.add(bloc,BorderLayout.CENTER);
